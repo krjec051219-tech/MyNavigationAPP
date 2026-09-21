@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+    화면 중앙에 타이틀, 설명, 버튼을 세로 방향으로 단순 배치하기 위해 LinearLayout을 사용합니다.
+    gravity="center"를 통해 내부 모든 요소를 화면 정중앙에 모아줍니다.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".HomeFragment">
 
+    <!-- 1. 앱 제목 (TextView) -->
     <TextView
+        android:id="@+id/tvHomeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:text="☕ 캠퍼스 카페"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#333333" />
 
+    <!-- 2. 안내 설명 (TextView) -->
     <TextView
+        android:id="@+id/tvHomeDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2024621017 정은찬 Navigation 실습"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="12dp"
+        android:text="원하는 메뉴를 주문해보세요."
+        android:textSize="16sp"
+        android:textColor="#666666" />
 
+    <!--
+        3. 메뉴 보기 버튼 (Button)
+        - 이 id(btnGoToMenu)를 기반으로 Kotlin 코드의 ViewBinding에서 바인딩 변수가 생성됩니다.
+    -->
     <Button
-        android:id="@+id/btnMoveMenu"
-        android:layout_width="200dp"
+        android:id="@+id/btnGoToMenu"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="12dp"
         android:text="메뉴 보기"
-        android:layout_marginTop="30dp" />
+        android:textSize="16sp" />
 
 </LinearLayout>

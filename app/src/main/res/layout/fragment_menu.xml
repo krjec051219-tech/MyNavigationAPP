@@ -1,46 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+    4개의 메뉴 버튼을 위아래로 나열하기 위해 LinearLayout(vertical)을 사용합니다.
+    버튼 간격은 layout_marginTop으로 조절합니다.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".MenuFragment">
 
+    <!-- 상단 안내 제목 -->
     <TextView
+        android:id="@+id/tvMenuTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MENU"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:text="메뉴를 선택해주세요"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#333333" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="원하는 항목을 선택하세요."
-        android:textSize="18sp"
-        android:layout_marginTop="20dp" />
-
+    <!-- 메뉴 1: 아메리카노 -->
     <Button
-        android:id="@+id/btnAndroid"
-        android:layout_width="200dp"
+        android:id="@+id/btnMenu1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="32dp"
+        android:paddingVertical="12dp"
+        android:text="1. 아메리카노 - 3,000원"
+        android:textSize="16sp" />
 
+    <!-- 메뉴 2: 카페라떼 -->
     <Button
-        android:id="@+id/btnKotlin"
-        android:layout_width="200dp"
+        android:id="@+id/btnMenu2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kotlin"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="12dp"
+        android:paddingVertical="12dp"
+        android:text="2. 카페라떼 - 3,500원"
+        android:textSize="16sp" />
 
+    <!-- 메뉴 3: 바닐라라떼 -->
     <Button
-        android:id="@+id/btnBackHome"
-        android:layout_width="200dp"
+        android:id="@+id/btnMenu3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HOME으로 돌아가기"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="12dp"
+        android:paddingVertical="12dp"
+        android:text="3. 바닐라라떼 - 4,000원"
+        android:textSize="16sp" />
+
+    <!-- 메뉴 4: 복숭아 아이스티 -->
+    <Button
+        android:id="@+id/btnMenu4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingVertical="12dp"
+        android:text="4. 복숭아 아이스티 - 3,000원"
+        android:textSize="16sp" />
 
 </LinearLayout>

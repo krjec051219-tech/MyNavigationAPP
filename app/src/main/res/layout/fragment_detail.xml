@@ -1,33 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+    전달받은 메뉴 정보와 가격, 수량을 확인하고 장바구니에 담는 레이아웃입니다.
+    세로(vertical) 방향으로 순서대로 배치합니다.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".DetailFragment">
 
+    <!-- 화면 제목 -->
     <TextView
+        android:id="@+id/tvDetailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DETAIL"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:text="메뉴 상세"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333" />
 
+    <!-- 선택된 메뉴 이름 표시 -->
     <TextView
-        android:id="@+id/txtResult"
+        android:id="@+id/tvSelectedMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="선택한 항목"
-        android:textSize="22sp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="32dp"
+        android:text="선택한 메뉴: -"
+        android:textSize="18sp"
+        android:textColor="#222222" />
 
+    <!-- 가격 표시 -->
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="가격: 0원"
+        android:textSize="18sp"
+        android:textColor="#222222" />
+
+    <!-- 수량 표시 (기본 1개) -->
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="수량: 1개"
+        android:textSize="16sp"
+        android:textColor="#666666" />
+
+    <!-- 장바구니 담기 버튼 -->
     <Button
-        android:id="@+id/btnBack"
-        android:layout_width="200dp"
+        android:id="@+id/btnAddToCart"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="이전 화면"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="36dp"
+        android:paddingVertical="12dp"
+        android:text="장바구니 담기"
+        android:textSize="16sp" />
 
 </LinearLayout>

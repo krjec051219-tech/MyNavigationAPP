@@ -1,53 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:id="@+id/nav_graph"
-
     app:startDestination="@id/homeFragment">
 
-
+    <!-- 1. 시작 화면: HomeFragment -->
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.jeiu.mynavigationapp.HomeFragment"
-        android:label="Home"
+        android:name="com.example.mynavigationapp.HomeFragment"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
+        <!-- Home -> Menu 이동 액션 -->
         <action
             android:id="@+id/action_homeFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
-
     </fragment>
 
-
+    <!-- 2. 메뉴 선택 화면: MenuFragment -->
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.jeiu.mynavigationapp.MenuFragment"
-        android:label="Menu"
+        android:name="com.example.mynavigationapp.MenuFragment"
+        android:label="fragment_menu"
         tools:layout="@layout/fragment_menu">
 
+        <!-- Menu -> Detail 이동 액션 (Bundle 동반) -->
         <action
             android:id="@+id/action_menuFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-
     </fragment>
 
-
+    <!-- 3. 상세 화면: DetailFragment -->
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.jeiu.mynavigationapp.DetailFragment"
-        android:label="Detail"
+        android:name="com.example.mynavigationapp.DetailFragment"
+        android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
 
-        <argument
-            android:name="subject"
-            app:argType="string"
-            android:defaultValue="선택 없음" />
-
+        <!-- Detail -> Cart 이동 액션 (Bundle 동반) -->
+        <action
+            android:id="@+id/action_detailFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
 
+    <!-- 4. 장바구니 화면: CartFragment -->
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.mynavigationapp.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart">
+
+        <!-- Cart -> OrderComplete 이동 액션 -->
+        <action
+            android:id="@+id/action_cartFragment_to_orderCompleteFragment"
+            app:destination="@id/orderCompleteFragment" />
+    </fragment>
+
+    <!-- 5. 주문 완료 화면: OrderCompleteFragment -->
+    <fragment
+        android:id="@+id/orderCompleteFragment"
+        android:name="com.example.mynavigationapp.OrderCompleteFragment"
+        android:label="fragment_order_complete"
+        tools:layout="@layout/fragment_order_complete">
+
+        <!--
+            OrderComplete -> Home 이동 액션
+            - app:popUpTo="@id/homeFragment"
+            - app:popUpToInclusive="true"
+            이 두 속성을 통해 이전의 주문 화면 기록(스택)을 비우고 초기 화면으로 전환합니다.
+        -->
+        <action
+            android:id="@+id/action_orderCompleteFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>
